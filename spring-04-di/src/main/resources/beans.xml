@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="address" class="com.shk.pojo.Address" >
+        <property name="address" value="222"/>
+    </bean>
+<bean id="Student"  class="com.shk.pojo.Student"  p:name="sunHengKui" c:name="lisi" scope="singleton" autowire="default" >
+
+    <property name="address" ref="address" />
+    <property name="books">
+        <array>
+            <value>红楼梦</value>
+            <value>西游记</value>
+        </array>
+    </property>
+    <property name="hobbies" >
+        <list>
+            <value>打篮球</value>
+            <value>踢足球</value>
+        </list>
+    </property>
+    <property name="card">
+        <map>
+            <entry key="西瓜" value="两元一斤"/>
+            <entry key="苹果" value="五元一斤"/>
+        </map>
+    </property>
+    <property name="game">
+        <set>
+            <value>22</value>
+            <value>张三</value>
+        </set>
+    </property>
+    <property name="infor">
+        <props>
+            <prop key="a2">嗄</prop>
+            <prop key="a1">我</prop>
+        </props>
+    </property>
+    <property name="wife">
+        <null />
+    </property>
+</bean>
+
+
+    <!-- more bean definitions go here -->
+
+</beans>

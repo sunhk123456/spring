@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c" xmlns:aop="http://www.springframework.org/schema/aop"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--    指定要扫描的包 这个包里面的注解就会生效-->
+<bean id="userServive" class="com.shk.service.UserServiceImpl" />
+<bean id="Log" class="com.shk.log.Log" />
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="aaa" expression="execution(* com.shk.service.UserServiceImpl.*(..))"/>
+        <aop:advisor advice-ref="Log" pointcut-ref="aaa"/>
+    </aop:config>
+
+
+
+
+
+
+</beans>
